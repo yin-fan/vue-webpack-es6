@@ -10,7 +10,6 @@ config.plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    
     new HtmlWebpackPlugin({
         filename: 'app/index/index.html',
         template: path.resolve(__dirname, '../app/index/index.html'),

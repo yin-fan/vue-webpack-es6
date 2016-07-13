@@ -14,7 +14,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../output/static'), //输出目录
         publicPath: 'static/', // html中嵌入的script的src的路径
-        filename: '[name].[hash].js',
+        filename: 'js/[name].[hash].js',
         chunkFilename: '[id].[chunkhash].js' //非入口文件的命名规则
     },
     resolve: {
@@ -39,7 +39,7 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000,
-                    name: '[name].[ext]?[hash:7]'
+                    name: 'images/[name].[ext]?[hash:7]'
                 }
             }
         ]

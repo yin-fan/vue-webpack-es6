@@ -1,5 +1,6 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin'); //css单独打包
+var CleanPlugin = require('clean-webpack-plugin'); //清理文件夹
 var path = require("path");
 var webpack = require('webpack');
 
@@ -18,7 +19,13 @@ config.vue = {
 config.entry.vendors = ['Vue'];
 
 config.plugins = [
-    new ExtractTextPlugin("[name].[contenthash].css"),
+    //清空输出目录
+    new CleanPlugin(['output'], {
+        "root": path.resolve(__dirname, '../'),
+        verbose: true,
+        dry: false
+    }),
+    new ExtractTextPlugin("css/[name].[contenthash].css"),
     // 压缩代码
     new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -28,7 +35,7 @@ config.plugins = [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
         name: 'vendors',
-        filename: 'vendors.js'
+        filename: 'libs/vendors.js'
     }),
     new HtmlWebpackPlugin({
         filename: '../index.html',
