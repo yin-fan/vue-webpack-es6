@@ -1,7 +1,7 @@
 # vue-webpack-es6
 最近在学习vue和webpack，然后搭建了一个vue+webpack的小demo,采用的是ES6的语法，node的版本是 V6.2.1 。
 
-运行命令:
+# 运行命令:
 1. npm run build  简单的构建。
 2. npm run pro    生产环境的构建（包括：输出目录的配置，提取公共文件，压缩代码等目前还不是很完善）。  
 3. npm run dev    热部署(部署完之后，访问http://localhost:8888/app/index/index.html)
